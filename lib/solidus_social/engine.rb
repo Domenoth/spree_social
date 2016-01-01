@@ -1,4 +1,4 @@
-module SpreeSocial
+module SolidusSocial
   OAUTH_PROVIDERS = [
     %w(Facebook facebook true),
     %w(Twitter twitter false),
@@ -8,11 +8,11 @@ module SpreeSocial
   ]
 
   class Engine < Rails::Engine
-    engine_name 'spree_social'
+    engine_name 'solidus_social'
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    initializer 'spree_social.environment', before: 'spree.environment' do
+    initializer 'spree.social.environment', before: 'spree.environment' do
       Spree::SocialConfig = Spree::SocialConfiguration.new
     end
 
@@ -33,7 +33,7 @@ module SpreeSocial
       next unless auth_method.provider == provider
       key = auth_method.api_key
       secret = auth_method.api_secret
-      Rails.logger.info("[Spree Social] Loading #{auth_method.provider.capitalize} as authentication source")
+      Rails.logger.info("[Solidus Social] Loading #{auth_method.provider.capitalize} as authentication source")
     end
     setup_key_for(provider.to_sym, key, secret)
   end

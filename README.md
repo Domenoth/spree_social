@@ -118,13 +118,13 @@ It is easy to add any OAuth source, given there is an OmniAuth strategy gem for 
 
 1, Add `gem "omniauth-linkedin"` to your Gemfile, run `bundle install`.
 
-2, In an initializer file, e.g. `config/initializers/devise.rb`, add and init a new provider for SpreeSocial:
+2, In an initializer file, e.g. `config/initializers/devise.rb`, add and init a new provider for SolidusSocial:
 
 **Optional**: If you want to skip the sign up phase where the user has to provide an email and a password, add a third parameter to the provider entry and the Spree user will be created directly using the email field in the [Auth Hash Schema](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema):
 
 ```ruby
-SpreeSocial::OAUTH_PROVIDERS << ['LinkedIn', 'linkedin', 'true']
-SpreeSocial.init_provider('linkedin')
+SolidusSocial::OAUTH_PROVIDERS << ['LinkedIn', 'linkedin', 'true']
+SolidusSocial.init_provider('linkedin')
 ```
 
 3, Activate your provider as usual (via initializer or admin interface).

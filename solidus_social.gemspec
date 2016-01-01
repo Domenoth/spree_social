@@ -1,13 +1,13 @@
 lib = File.expand_path('../lib/', __FILE__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
-require 'spree_social/version'
+require 'solidus_social/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_social'
-  s.version     = SpreeSocial.version
-  s.summary     = 'Adds social network login services (OAuth) to Spree'
+  s.name        = 'solidus_social'
+  s.version     = SolidusSocial.version
+  s.summary     = 'Adds social network login services (OAuth) to Solidus'
   s.description = s.summary
   s.required_ruby_version = '>= 2.1.0'
 
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_runtime_dependency 'spree_core', '~> 3.0.0.rc4'
+  s.add_runtime_dependency 'solidus_core', '~> 1.1.1'
   s.add_runtime_dependency 'omniauth'
   s.add_runtime_dependency 'oa-core'
   s.add_runtime_dependency 'omniauth-twitter'

@@ -4,8 +4,8 @@ RSpec.feature 'Admin Authentication Methods', :js do
   context 'elements' do
     scenario 'has configuration tab' do
       visit spree.admin_path
-      click_link 'Configuration'
-      expect(page).to have_text 'Social Authentication Methods'
+      click_link 'Settings'
+      expect(page).to have_text 'Social Authentication Methods'.upcase
     end
   end
 
@@ -15,10 +15,10 @@ RSpec.feature 'Admin Authentication Methods', :js do
     end
 
     scenario 'can create new' do
-      expect(page).to have_text 'No Authentication Methods Found, Add One!'
+      expect(page).to have_text 'No Authentication Methods Found, Add One!'.upcase
 
       click_link 'New Authentication Method'
-      expect(page).to have_text 'Back To Authentication Methods List'
+      expect(page).to have_text 'Back To Authentication Methods List'.upcase
 
       select2 'Test', from: 'Environment'
       select2 'Github', from: 'Social Provider'
@@ -64,7 +64,7 @@ RSpec.feature 'Admin Authentication Methods', :js do
 
     scenario 'can be deleted' do
       within_row(1) do
-        click_icon :delete
+        click_icon :trash
       end
 
       page.driver.browser.switch_to.alert.accept unless Capybara.javascript_driver == :poltergeist

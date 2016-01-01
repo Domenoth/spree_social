@@ -4,7 +4,7 @@ Spree.user_class.class_eval do
   devise :omniauthable
 
   def apply_omniauth(omniauth)
-    skip_signup_providers = SpreeSocial::OAUTH_PROVIDERS.map { |p| p[1] if p[2] == 'true' }.compact
+    skip_signup_providers = SolidusSocial::OAUTH_PROVIDERS.map { |p| p[1] if p[2] == 'true' }.compact
     if skip_signup_providers.include? omniauth['provider']
       self.email = omniauth['info']['email'] if email.blank?
     end
